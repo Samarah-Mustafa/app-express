@@ -1,6 +1,6 @@
 import express from 'express';
 import Item from '../models/item.js';
-import itensRepository from '../repositories/itens-repository.js';
+import itensRepository from './itens-repository.js';
 
 const itensRouter = express.Router();
 
