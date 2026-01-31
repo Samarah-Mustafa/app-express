@@ -8,11 +8,7 @@ import Item from '../models/item.js';
  */
 const criar = async (item: Item): Promise<number> => {
     const db = await database;
-    const result = await db.run(
-        'INSERT INTO itens (nome, descricao) VALUES (?, ?)',
-        item.nome,
-        item.descricao
-    );
+    const result = await db.run('INSERT INTO itens (nome, descricao) VALUES (?, ?)', item.nome, item.descricao);
     return result.lastID!;
 };
 
@@ -43,12 +39,7 @@ const ler = async (id: number): Promise<Item | undefined> => {
  */
 const atualizar = async (id: number, item: Item): Promise<boolean> => {
     const db = await database;
-    const result = await db.run(
-        'UPDATE itens SET nome = ?, descricao = ? WHERE id = ?',
-        item.nome,
-        item.descricao,
-        id
-    );
+    const result = await db.run('UPDATE itens SET nome = ?, descricao = ? WHERE id = ?', item.nome, item.descricao, id);
     return (result.changes ?? 0) > 0;
 };
 

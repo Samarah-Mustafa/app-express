@@ -12,7 +12,9 @@ itensRouter.post('/itens', async (req, res) => {
             return res.status(400).json({ message: 'O campo "nome" é obrigatório.' });
         }
         const id = await itensRepository.criar(item);
-        res.status(201).location(`/api/itens/${id}`).json({ id, ...item });
+        res.status(201)
+            .location(`/api/itens/${id}`)
+            .json({ id, ...item });
     } catch (error) {
         res.status(500).json({ message: 'Erro interno ao criar item.', error: (error as Error).message });
     }

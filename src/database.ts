@@ -3,7 +3,7 @@ import { open } from 'sqlite';
 
 const database = open({
     filename: './db.sqlite',
-    driver: sqlite3.Database
+    driver: sqlite3.Database,
 });
 
 database.then((db) => {
