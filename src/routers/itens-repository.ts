@@ -1,5 +1,5 @@
 import database from '../database.js';
-import Item from '../models/item.js';
+import type Item from '../models/item.js';
 
 /**
  * Função para criar um novo item no banco de dados.

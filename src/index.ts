@@ -25,7 +25,12 @@ app.get('/', (req, res) => {
 app.use('/api', itensRouter);
 // Resposta padrão para quaisquer outras requisições:
 app.use((req, res) => {
-    res.status(404);
+    res.status(404).send('Página não encontrada');
+});
+// Middleware global de erros (deve ser o último)
+app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {
+    console.error(err.stack);
+    res.status(500).send('Algo deu errado!');
 });
 // Inicia o sevidor
 app.listen(PORT, () => {

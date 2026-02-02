@@ -2,3 +2,5 @@ node_modules
 dist
 db.sqlite
 .eslintcache
+.env
+.DS_Store
